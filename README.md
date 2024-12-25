@@ -27,18 +27,45 @@ Therefore, D flip-flop always Hold the information, which is available on data i
 Next state of D flip-flop is always equal to data input, D for every positive transition of the clock signal. Hence, D flip-flops can be used in registers, shift registers and some of the counters.
 
 **Procedure**
+```
+Define Module: Define a Verilog module for the D flip-flop with inputs (D, CLK) and outputs (Q, Q_bar).
 
-/* write all the steps invloved */
+Declare Inputs and Outputs: Declare input and output ports for the module.
 
+Implement Flip-Flop Logic: Write Verilog code to implement the D flip-flop logic based on its functional table. Use a synchronous always @(posedge CLK) block to trigger the flip-flop on the positive edge of the clock signal.
+
+Simulate Using Testbench: Write a Verilog testbench to simulate the behavior of the D flip-flop under different input conditions.
+
+Apply Input Stimuli: In the testbench, apply various combinations of input stimuli (D, CLK) to cover all possible input states.
+
+Verify Output Behavior: Verify that the output behavior of the D flip-flop matches the expected behavior defined by its functional table.
+
+Check for Race Conditions: Ensure that there are no race conditions or undefined states in the design by analyzing the timing and sequence of input changes.
+```
 **PROGRAM**
+Developed by: Pugazhenthi S
 
-/* Program for flipflops and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
-*/
+RegisterNumber: 212224240120
+```
+module DFLIPFLOPNEGEDGE(D,Clock,reset,Q);
+input D,Clock,reset;
+output reg Q;
+always @ (negedge Clock)// use negative edge clock for triggereing condition 
+if(!reset)//compute D flipflop logic here
+       Q <= 0;
+  else
+       Q <= D; 
+   
+ endmodule
+```
 
 **RTL LOGIC FOR FLIPFLOPS**
+![image](https://github.com/Priyanghaofficial/D-FLIPDLOP-NEGEDGE/assets/147121154/4631a0e8-5760-467a-aa4a-434b737a9680)
 
 
 **TIMING DIGRAMS FOR FLIP FLOPS**
+![image](https://github.com/Priyanghaofficial/D-FLIPDLOP-NEGEDGE/assets/147121154/26b0fcc4-1b4c-4aaa-8081-30548e8eaf17)
 
+**RESULTS:**
 
-**RESULTS**
+Thus the program to implement a D flipflop using verilog and validating their functionality using their functional tables.
